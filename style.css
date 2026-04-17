@@ -1,15 +1,20 @@
+
+
+
 body {
   /* Set line height to 1.5 times the font size
 	   and use the OS’s UI font as the website font
 	 */
-  max-width: 100ch;
   padding: 4rem;
   margin-inline: auto;
   font: 100%/1.5 system-ui;
+
+
 }
 input, 
 textarea,
-button{
+button,
+select{
   font: inherit;
 }
 ul{
@@ -25,6 +30,12 @@ nav ul{
   margin: 0;
 }
 
+
+nav {
+  display: flex;
+  /* --border-color: oklch(70% 10% 200 / 40%); */
+}
+
 nav a{
     flex: 1;
     text-align: center;
@@ -36,25 +47,27 @@ nav a{
     padding: 0.5em;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: oklch(80% 3% 200);
+    border-bottom-color: var(--border-color);
 }
 
 
 nav a.current{
-    font-weight: bold;
-    border-bottom: 2px solid black;
+  font-weight: bold;
+   border-bottom: 4px solid var(--border-color);
   }
 
 
 html {
   --color-accent: oklch(65% 50% 0);
+  --border-color: oklch(90% 5% 200 / 80%);
   accent-color: var(--color-accent);
+  color-scheme: light dark;
 }
 
 nav a:hover{
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.1em;
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+ background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 form{
@@ -112,7 +125,7 @@ main > h1 {
 
 /* Contact line styling */
 main > p {
-  color: #555;
+  color: #979797;
   margin-bottom: 2em;
 }
 
@@ -123,7 +136,8 @@ section {
 
 /* Section headers */
 section h2 {
-  border-bottom: 1px solid oklch(80% 3% 200);
+
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.3em;
   margin-bottom: 0.75em;
 }
@@ -171,4 +185,12 @@ ul {
 /* Make skills more compact */
 section:last-of-type ul {
   columns: 2;
+}
+
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
 }
