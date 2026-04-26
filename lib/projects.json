@@ -1,0 +1,75 @@
+[
+    {
+        "title": "Health-Tag Prediction",
+        "year": "2026",
+        "image": "../images/health-tag-predictor.png",
+        "description": "This project predicts whether a recipe will be labeled “healthy” using features like ingredients, cooking time, and nutrition. It shows how data can help users quickly find healthier options."
+
+    },
+    {
+        "title": "Nutrient Composition",
+        "year": "2026",
+        "image": "../images/FiberQuant.png",
+        "description": "This project visualizes how nutrient composition changes as food processing increases, highlighting that fiber makes up a smaller proportion in more processed foods."
+    },
+    {
+        "title": "Data Center Energy Usage Analysis",
+        "year": "2026",
+        "image": "../images/DataCenter.png",
+        "description": "This project analyzes the energy usage of data centers located in Virginia. It tracks change of energy consumption over time in relation to when data centers were built in specific zipcodes. "
+    },
+    {
+        "title": "N-Gram Language Model",
+        "year": "2025",
+        "image": "../images/Ngram.png",
+        "description": "This project builds language models (uniform, unigram, and n-gram) to learn patterns in text and generate new sentences based on probabilities. It shows how tokenization and statistical modeling can capture language structure and predict realistic word sequences."
+    },
+    {
+        "title": "Minima porro non quas.",
+        "year": "2023",
+        "image": "../images/placeholder.png",
+        "description": "Dolore modi perferendis blanditiis iste, atque voluptates quam quod corrupti tempore in, laborum quae repellat eligendi, maiores voluptate architecto? Repudiandae dignissimos optio aut fugiat, in consequuntur? Quisquam accusantium necessitatibus voluptatibus!"
+    },
+    {
+        "title": "Vero quisquam nesciunt autem!",
+        "year": "2023",
+        "image": "../images/placeholder.png",
+        "description": "Et ullam adipisci assumenda ipsa animi aspernatur soluta aperiam! Soluta ea temporibus, sapiente porro praesentium, possimus nemo maxime iste animi sequi, provident eius perferendis iure fugit corrupti tenetur quas? Fugiat!"
+    },
+    {
+        "title": "Aliquam repellat nostrum illo!",
+        "year": "2023",
+        "image": "../images/placeholder.png",
+        "description": "Labore, ab. Nulla veniam unde ullam eos, dolor dolores praesentium. Possimus incidunt consequatur asperiores totam doloribus ex quis dolor deserunt quasi rem iusto odio sed iure, tenetur architecto officia fugiat!"
+    },
+    {
+        "title": "Eaque, explicabo adipisci? Ad!",
+        "year": "2024",
+        "image": "../images/placeholder.png",
+        "description": "Explicabo cumque quia praesentium maiores nobis, labore nostrum vitae eligendi. Placeat, temporibus. Nemo perferendis eaque culpa debitis assumenda qui, architecto aut reiciendis recusandae totam pariatur quaerat, eligendi quis quam fuga."
+    },
+    {
+        "title": "Nam necessitatibus voluptate dolorum.",
+        "year": "2024",
+        "image": "../images/placeholder.png",
+        "description": "Culpa aliquam eveniet commodi? Eius odit dicta ratione molestias earum libero, facilis quisquam perspiciatis, modi accusantium fuga exercitationem. Rem minus odit unde eveniet et possimus, quam dicta? Aspernatur, soluta reiciendis!"
+    },
+    {
+        "title": "Quae alias maiores reprehenderit.",
+        "year": "2024",
+        "image": "../images/placeholder.png",
+        "description": "Repellendus beatae labore praesentium animi, cumque qui aspernatur. Optio reiciendis tempore modi et sint atque asperiores ratione fugit incidunt. Adipisci esse modi odit velit deleniti expedita qui assumenda nihil maxime!"
+    },
+    {
+        "title": "Voluptatum, accusamus nostrum. Earum!",
+        "year": "2025",
+        "image": "../images/placeholder.png",
+        "description": "Tempora voluptas minus natus. Sit eum, natus necessitatibus suscipit expedita ab dignissimos mollitia ipsa laudantium illum ipsum, impedit amet earum architecto. Omnis cumque architecto vitae quidem velit maiores, tenetur minus."
+    },
+    {
+        "title": "Culpa pariatur fugiat sed!",
+        "year": "2025",
+        "image": "../images/placeholder.png",
+        "description": "Assumenda excepturi voluptates molestias corrupti! Deserunt dolore possimus facilis ipsum suscipit provident eligendi. Qui, maiores accusamus dignissimos dolores aut culpa aliquid iure vel quia soluta deleniti ducimus! Doloremque, eum tenetur?"
+    }
+]
