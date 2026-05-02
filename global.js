@@ -16,6 +16,8 @@ let nav = document.createElement('nav');
 document.body.prepend(nav);
 
 
+const ARE_WE_HOME = document.documentElement.classList.contains('home-page');
+
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"
   : "/pemam238/";
@@ -24,8 +26,8 @@ for (let p of pages) {
   let url = p.url;
   let title = p.title;
 
-  // Build absolute URL using origin so it works from any subpage
   url = !url.startsWith('http') ? location.origin + BASE_PATH + url : url;
+  // ...rest of loop
 
   let a = document.createElement('a');
   a.href = url;
