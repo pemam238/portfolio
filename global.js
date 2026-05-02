@@ -24,7 +24,7 @@ for (let p of pages) {
   let url = p.url;
   let title = p.title;
 
-  url = !url.startsWith('http') ? new URL(url, BASE_PATH,).pathname : url;
+ url = !url.startsWith('http') ? BASE_PATH + url : url;
 
   // next step: create link and add it to nav
   let a = document.createElement('a');
