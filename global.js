@@ -20,7 +20,7 @@ const ARE_WE_HOME = document.documentElement.classList.contains('home-page');
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"
-  : "/pemam238/";
+  : "/portfolio/";
 
 for (let p of pages) {
   let url = p.url;
