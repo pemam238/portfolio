@@ -17,31 +17,30 @@ document.body.prepend(nav);
 
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-  ? "/"                  // Local server
-  : "/pemam238/";         // GitHub Pages repo name
+  ? "/"
+  : "/pemam238/";
 
 for (let p of pages) {
   let url = p.url;
   let title = p.title;
 
- url = !url.startsWith('http') ? BASE_PATH + url : url;
+  // Build absolute URL using origin so it works from any subpage
+  url = !url.startsWith('http') ? location.origin + BASE_PATH + url : url;
 
-  // next step: create link and add it to nav
   let a = document.createElement('a');
   a.href = url;
   a.textContent = title;
 
+  if (a.host === location.host && a.pathname === location.pathname) {
+    a.classList.add('current');
+  }
 
- if (a.host === location.host && a.pathname === location.pathname) {
-  a.classList.add('current');
- }
-
- if (a.host !== location.host){
+  if (a.host !== location.host) {
     a.target = "_blank";
- }
- nav.append(a);
-}
+  }
 
+  nav.append(a);
+}
 
 document.body.insertAdjacentHTML(
   'afterbegin',
