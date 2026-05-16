@@ -25,11 +25,11 @@
         "description": "This project builds language models (uniform, unigram, and n-gram) to learn patterns in text and generate new sentences based on probabilities. It shows how tokenization and statistical modeling can capture language structure and predict realistic word sequences."
     },
     {
-    "title": "Bike Traffic Flow Visualization",
-    "year": "2026",
-    "image": "../images/bike-watching.png",
-    "url": "https://pemam238.github.io/Bike-Watching/",
-    "description": "This interactive visualization maps Bluebikes traffic patterns across the Boston and Cambridge area using Mapbox and D3.js. The project analyzes over 260,000 bike trips from March 2024, displaying station traffic volume through circle size and traffic flow direction through color. Users can explore how bike activity changes throughout the day using a time-based filter slider and dynamic map interactions."
+        "title": "Bike Traffic Flow Visualization",
+        "year": "2026",
+        "image": "../images/bike-watching.png",
+        "url": "https://pemam238.github.io/Bike-Watching/",
+        "description": "This interactive visualization maps Bluebikes traffic patterns across the Boston and Cambridge area using Mapbox and D3.js. The project analyzes over 260,000 bike trips from March 2024, displaying station traffic volume through circle size and traffic flow direction through color. Users can explore how bike activity changes throughout the day using a time-based filter slider and dynamic map interactions."
     },
     {
         "title": "Vero quisquam nesciunt autem!",
