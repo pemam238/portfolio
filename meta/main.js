@@ -1,4 +1,5 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
+import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
 
 let commitProgress = 100;
 let timeScale;
@@ -47,7 +48,8 @@ function processCommits(data) {
             });
 
             return ret;
-        });
+        })
+        .sort((a, b) => a.datetime - b.datetime);
 }
 
 function renderCommitInfo(data, commits) {
@@ -58,12 +60,14 @@ function renderCommitInfo(data, commits) {
 
     const dl = stats.append('dl').attr('class', 'stats');
 
-    const numberOfFiles = d3.group(data, (d) => d.file).size;
-    const maxDepth = d3.max(data, (d) => d.depth);
-    const longestLine = d3.greatest(data, (d) => d.length);
+    const lines = commits.flatMap((d) => d.lines);
+
+    const numberOfFiles = d3.group(lines, (d) => d.file).size;
+    const maxDepth = d3.max(lines, (d) => d.depth);
+    const longestLine = d3.greatest(lines, (d) => d.length);
 
     const fileLengths = d3.rollups(
-        data,
+        lines,
         (v) => d3.max(v, (d) => d.line),
         (d) => d.file
     );
@@ -77,7 +81,7 @@ function renderCommitInfo(data, commits) {
     dl.append('dd').text(numberOfFiles);
 
     dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
-    dl.append('dd').text(data.length);
+    dl.append('dd').text(lines.length);
 
     dl.append('dt').text('Max depth');
     dl.append('dd').text(maxDepth);
@@ -126,12 +130,14 @@ function updateTooltipPosition(event) {
 
 function updateFileDisplay(commits) {
     let lines = commits.flatMap((d) => d.lines);
+    let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
     let files = d3
-        .groups(lines, (d) => d.file)
-        .map(([name, lines]) => {
-            return { name, lines };
-        });
+    .groups(lines, (d) => d.file)
+    .map(([name, lines]) => {
+        return { name, lines };
+    })
+    .sort((a, b) => b.lines.length - a.lines.length);
 
     let filesContainer = d3
         .select('#files')
@@ -156,7 +162,8 @@ function updateFileDisplay(commits) {
         .selectAll('div')
         .data((d) => d.lines)
         .join('div')
-        .attr('class', 'loc');
+        .attr('class', 'loc')
+        .attr('style', (d) => `--color: ${colors(d.type)}`);
 }
 
 function onTimeSliderChange() {
@@ -446,6 +453,56 @@ console.log(commits);
 renderCommitInfo(data, commits);
 
 renderScatterPlot(data, commits);
+d3.select('#scatter-story')
+    .selectAll('.step')
+    .data(commits)
+    .join('div')
+    .attr('class', 'step')
+    .html(
+        (d, i) => `
+            On ${d.datetime.toLocaleString('en', {
+                dateStyle: 'full',
+                timeStyle: 'short',
+            })},
+            I made <a href="${d.url}" target="_blank">${
+                i > 0
+                    ? 'another commit'
+                    : 'my first commit'
+            }</a>.
+            I edited ${d.totalLines} lines across ${
+                d3.rollups(
+                    d.lines,
+                    (D) => D.length,
+                    (d) => d.file
+                ).length
+            } files.
+        `
+    );
+
+function onStepEnter(response) {
+    commitMaxTime = response.element.__data__.datetime;
+
+    filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+
+    updateScatterPlot(data, filteredCommits);
+    renderCommitInfo(data, filteredCommits);
+    updateFileDisplay(filteredCommits);
+
+    document.querySelector('#commit-time').textContent =
+        commitMaxTime.toLocaleString('en', {
+            dateStyle: 'long',
+            timeStyle: 'short',
+        });
+}
+
+const scroller = scrollama();
+
+scroller
+    .setup({
+        container: '#scrolly-1',
+        step: '#scrolly-1 .step',
+    })
+    .onStepEnter(onStepEnter);
 
 document
     .querySelector('#commit-progress')

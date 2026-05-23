@@ -11,34 +11,23 @@
 
 <body>
 
-    <div class="commit-filter">
-        <label for="commit-progress">
-            Show commits until:
-
-            <input
-                id="commit-progress"
-                type="range"
-                min="0"
-                max="100"
-                value="100"
-                step = ".05"
-            >
-
-            <time id="commit-time"></time>
-        </label>
-    </div>
-
-    <dl id="files"></dl>
-
     <div id="stats"></div>
 
     <h2>Commits by time of day</h2>
 
-    <div id="chart"></div>
+    <div id="scrolly-1">
+        <div id="scatter-story"></div>
 
-    <p id="selection-count">No commits selected</p>
+        <div id="scatter-plot">
+            <div id="chart"></div>
 
-    <dl id="language-breakdown" class="stats"></dl>
+            <p id="selection-count">No commits selected</p>
+
+            <dl id="language-breakdown" class="stats"></dl>
+        </div>
+    </div>
+
+    <dl id="files"></dl>
 
     <dl id="commit-tooltip" class="info tooltip" hidden>
         <dt>Commit</dt>
